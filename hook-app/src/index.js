@@ -11,11 +11,12 @@ import ReactDOM from 'react-dom';
 // import { CounterWithCustomHook } from './components/01-useState/CounterWithCustomHook';
 // import { SimpleForm } from './components/02 - useEffect/SimpleForm';
 // import { HookApp } from './HookApp';
-import { MemoHook } from './components/06-memos/MemoHook';
+// import { MemoHook } from './components/06-memos/MemoHook';
+import { CallbackHook } from './components/06-memos/CallbackHook';
 
 
 
 ReactDOM.render(
-    <MemoHook />,
+    <CallbackHook />,
   document.getElementById('root')
 );
