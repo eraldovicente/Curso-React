@@ -12,11 +12,12 @@ import ReactDOM from 'react-dom';
 // import { SimpleForm } from './components/02 - useEffect/SimpleForm';
 // import { HookApp } from './HookApp';
 // import { MemoHook } from './components/06-memos/MemoHook';
-import { CallbackHook } from './components/06-memos/CallbackHook';
+// import { CallbackHook } from './components/06-memos/CallbackHook';
+import { Padre } from './components/07-tarea-memo/Padre';
 
 
 
 ReactDOM.render(
-    <CallbackHook />,
+    <Padre />,
   document.getElementById('root')
 );
