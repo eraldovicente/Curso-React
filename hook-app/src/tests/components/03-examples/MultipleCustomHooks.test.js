@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MultipleCustomHooks } from '../../components/03-examples/MultipleCustomHooks';
-import { useFetch } from '../../hooks/useFetch';
-import { useCounter } from '../../hooks/useCounter';
+import { MultipleCustomHooks } from '../../../components/03-examples/MultipleCustomHooks';
+import { useFetch } from '../../../hooks/useFetch';
+import { useCounter } from '../../../hooks/useCounter';
 
-jest.mock('../../hooks/useFetch');
-jest.mock('../../hooks/useCounter');
+jest.mock('../../../hooks/useFetch');
+jest.mock('../../../hooks/useCounter');
 
 describe('Pruebas en <MultipleCustomHooks />', () => {
 
@@ -43,7 +43,7 @@ describe('Pruebas en <MultipleCustomHooks />', () => {
           expect( wrapper.find('.mb-0').text().trim() ).toBe( 'Hola Mundo' );
           expect( wrapper.find('footer').text().trim() ).toBe( 'Eraldo' );
           
-          // console.log( wrapper.html() )
+          console.log( wrapper.html() )
      })
      
 })
