@@ -43,7 +43,7 @@ describe('Pruebas en <MultipleCustomHooks />', () => {
           expect( wrapper.find('.mb-0').text().trim() ).toBe( 'Hola Mundo' );
           expect( wrapper.find('footer').text().trim() ).toBe( 'Eraldo' );
           
-          console.log( wrapper.html() )
+          // console.log( wrapper.html() )
      })
      
 })

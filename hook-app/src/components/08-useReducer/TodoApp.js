@@ -56,7 +56,7 @@ export const TodoApp = () => {
 
      return (
           <div>
-               <h1>todoApp ({ todos.length })</h1>
+               <h1>TodoApp ({ todos.length })</h1>
                <hr/>
 
                <div className="row">
