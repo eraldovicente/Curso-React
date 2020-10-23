@@ -1,29 +1,26 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import queryString from 'query-string';
-
-import { useForm } from '../hooks/useForm';
-import { heroes } from '../../data/heroes'
 import { HeroCard } from '../heroes/HeroCard';
+import { useForm } from '../hooks/useForm';
 import { useLocation } from 'react-router-dom';
+import { getHeroesByName } from '../../selectors/getHeroesByName';
 
 export const SearchScreen = ({ history }) => {
 
-     const location = useLocation();
-     
+     const location = useLocation();     
      const { q = '' } = queryString.parse( location.search );
-
-     const { searchText } = formValues;
-
-     const heroesFiltered = heroes;
 
      const [ formValues, handleInputChange ] = useForm({
           searchText: q
      });
 
+     const { searchText } = formValues;
+
+     const heroesFiltered = useMemo(() => getHeroesByName( q ), [q])
+
      const handleSearch = (e) => {
           e.preventDefault();
-          // console.log(searchText);
-          history.push(`?=${ searchText }`);
+          history.push(`?q=${ searchText }`);
      }
 
      return (
@@ -55,8 +52,24 @@ export const SearchScreen = ({ history }) => {
                     </div>
                     <div className="col-7">
 
-                         <h4> Results </h4>
-                         <hr/>
+                    <h4> Results </h4>
+                    <hr />
+
+                    { 
+                        (q ==='') 
+                            && 
+                            <div className="alert alert-info">
+                                Search a hero
+                            </div>
+                    }
+
+                    { 
+                        (q !=='' && heroesFiltered.length === 0 ) 
+                            && 
+                            <div className="alert alert-danger">
+                                There is no a hero with { q }
+                            </div>
+                    }
                          {
                               heroesFiltered.map( hero => (
                                    <HeroCard 
