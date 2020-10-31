@@ -10,6 +10,7 @@ export const HeroScreen = ({ history }) => {
      // const hero = getHeroById( heroeId );
      // console.log(hero)
 
+     // console.log('Hero: ', hero, 'HeroId:', heroeId ); //para os testes
      if ( !hero ) {
           return <Redirect to="/" />;
      }
