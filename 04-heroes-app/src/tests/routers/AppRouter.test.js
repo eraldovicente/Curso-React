@@ -29,7 +29,7 @@ describe('Pruebas en <AppRouter />', () => {
           const contextValue = {
                dispatch: jest.fn(),
                user: {
-                    logged: false,
+                    logged: true,
                     name: 'Gabriel'
                }
           }
@@ -40,7 +40,7 @@ describe('Pruebas en <AppRouter />', () => {
                </AuthContext.Provider>
           );
 
-          expect( wrapper.find('navbar').exists() ).toBe(true);
-
+          expect( wrapper.find('.navbar').exists() ).toBe(true);
+          // console.log( wrapper.html() );
      })
 });
