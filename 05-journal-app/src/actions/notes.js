@@ -4,7 +4,7 @@ import { types } from '../types/types';
 export const startNewNote = () => {
      return async ( dispatch, getState ) => {
 
-          const uid = getState().auth;
+          const { uid } = getState().auth;
           
           const newNote = {
                title: '',
@@ -24,4 +24,9 @@ export const activeNote = ( id, note ) => ({
           id,
           ...note
      }
-})
+});
+
+export const setNotes = ( notes ) => ({
+     type: types.notesLoad,
+     payload: notes
+});
