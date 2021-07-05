@@ -1,7 +1,17 @@
-import React from 'react'
-import { NotesAppBar } from './NotesAppBar'
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { useForm } from '../../hooks/useForm';
+import { NotesAppBar } from './NotesAppBar';
 
 export const NoteScreen = () => {
+
+     const { active:note } = useSelector(state => state.notes );
+     const [ formValues, handleInputChange ] = useForm( note );
+
+     console.log(formValues);
+     const { body, title } = formValues;
+
      return (
           <div className="notes__main-content">
                <NotesAppBar />
@@ -11,17 +21,28 @@ export const NoteScreen = () => {
                          placeholder="Some Awsome title"
                          className="notes__title-input"
                          autoComplete="off"
-                    />
+                         value={ title }
+                         onChange={ handleInputChange }
+                         />
                     <textarea
                          placeholder="What happened today"
                          className="notes__textarea"
+                         value={ body }
+                         onChange={ handleInputChange }
                     />
-                    <div className="notes__image">
-                         <img
-                              src="https://i.pinimg.com/originals/08/28/e8/0828e864c48a2fb94c6977029b16115c.jpg"
-                              alt="imagem"
-                         />
-                    </div>
+
+                   { 
+                         (note.url) 
+                         && (
+                              <div className="notes__image">
+                                   <img
+                                        src="https://i.pinimg.com/originals/08/28/e8/0828e864c48a2fb94c6977029b16115c.jpg"
+                                        alt="imagem"
+                                   />
+                              </div>
+                         )
+                    }
+                    
                </div>
           </div>
      )
