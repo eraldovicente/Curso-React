@@ -5,7 +5,7 @@ describe('Pruebas con nuestros tipos', () => {
      test('debe de tener estos tipos', () => {
           
           expect( types ).toEqual({
-               ogin: '[Auth] Login',
+               login: '[Auth] Login',
                logout: '[Auth] Logout',
 
                uiSetError: '[UI] Set Error',
