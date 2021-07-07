@@ -54,6 +54,7 @@ export const RegisterScreen = () => {
 
                <form
                     onSubmit={ handleRegister }
+                    className="animate__animated animate__fadeIn animate__faster"
                >
                    { 
                          msgError &&
