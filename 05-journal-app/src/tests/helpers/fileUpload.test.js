@@ -1,5 +1,13 @@
+import cloudinary from 'cloudinary';
+
 import { fileUpload } from "../../helpers/fileUpload";
 
+cloudinary.config({ 
+     cloud_name: 'dvb9f965o', 
+     api_key: '914851476968871', 
+     api_secret: 'AOFRSNKbualpqa7Jd73DZJ28CRY',
+     secure: true
+});
 
 describe('Pruebas en fileUpload', () => {
      
@@ -12,6 +20,14 @@ describe('Pruebas en fileUpload', () => {
           const url = await fileUpload( file );
 
           expect( typeof url ).toBe('string');
+
+          // Borrar imagen por ID
+          const segments = url.split('/');
+          const imageId = segments[ segments.length - 1 ].replace('.jpg', '');
+
+          cloudinary.v2.api.delete_resources(imageId, {}, () => {
+          //    done();
+          });
 
      })
 
