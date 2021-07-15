@@ -9,6 +9,8 @@ import { db } from '../../firebase/firebase-config';
 import { fileUpload } from '../../helpers/fileUpload';
 import { types } from '../../types/types';
 
+jest.setTimeout(30000);
+
 jest.mock('../../helpers/fileUpload', () => {
      return {
          fileUpload: () => {

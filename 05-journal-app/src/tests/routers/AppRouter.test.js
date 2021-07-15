@@ -14,6 +14,8 @@ import { login } from '../../actions/auth';
 import { AppRouter } from '../../routers/AppRouter';
 import { act } from '@testing-library/react';
 
+jest.setTimeout(30000);
+
 jest.mock('../../actions/auth', () => ({
      login: jest.fn()
 }));
