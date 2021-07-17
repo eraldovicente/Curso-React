@@ -1,2 +1,3 @@
-06-calendar-app/node_modules
-calendar-app/node_modules
+# 06-calendar-app/node_modules
+# calendar-app/node_modules
+**/node_modules
