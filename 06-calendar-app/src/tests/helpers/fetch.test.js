@@ -1,4 +1,3 @@
-
 import { fetchConToken, fetchSinToken } from '../../helpers/fetch'
 
 describe('Pruebas en el helper Fetch', () => {
@@ -17,7 +16,7 @@ describe('Pruebas en el helper Fetch', () => {
 
           token = body.token;
 
-     })  
+     })   
 
 
      test('fetchConToken debe de funcionar', async() => {
