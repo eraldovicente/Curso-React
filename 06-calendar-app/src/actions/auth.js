@@ -46,17 +46,13 @@ export const startRegister = ( email, password, name ) => {
 export const startChecking = () => {
      return async(dispatch) => {
 
-          if( process.env.NODE_ENV !== 'test' ) {
-
-               const isCurrentToken = !!(localStorage.getItem('calendar_app__token') || '');
-      
-               if (!isCurrentToken){
-                    dispatch(checkingFinish()); 
-                    return;
-               }
-               
+          const isCurrentToken = !!(localStorage.getItem('token') || '');
+ 
+          if (!isCurrentToken){
+               dispatch(checkingFinish()); 
+               return;
           }
-
+          
           const resp = await fetchConToken( 'auth/renew' );
           const body = await resp.json();
 

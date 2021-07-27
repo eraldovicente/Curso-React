@@ -1,5 +1,6 @@
 const express = require('express');
 require('dotenv').config();
+const path = require ('path');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
 
@@ -13,7 +14,7 @@ dbConnection();
 app.use(cors());
 
 // Diretorio publico
-app.use( express.static('public') );
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 // Lectura y parseo del body
 app.use( express.json() );
@@ -21,6 +22,10 @@ app.use( express.json() );
 // Rutas
 app.use('/api/auth', require('./routes/auth') );
 app.use('/api/events', require('./routes/events') );
+
+app.get('*', (req, res) => {
+     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 // Escuchar peticiones
 app.listen( process.env.PORT, () => {
